@@ -72,7 +72,7 @@ def checkout(request):
                 total_price += product.price * int(item['quantity'])
                 items.append({
                     'price_data':{
-                        'currency': 'kes',
+                        'currency': 'usd',
                         'product_data': {
                             'name': product.title,
                         },

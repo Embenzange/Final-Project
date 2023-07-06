@@ -93,4 +93,4 @@ class OrderItem(models.Model):
     quantity = models.IntegerField(default=1)
 
     def get_display_price(self):
-        return self.price
+        return self.price/100
