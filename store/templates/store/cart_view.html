@@ -16,7 +16,7 @@
                     <div class="mt-4 mb-4">
                         <a href="{% url 'change_quantity' item.product.id %}?action=increase" class="p-2 rounded-xl bg-teal-500 text-white">+</a>
                         {{ item.Quantity }}
-                        <a href="{% url 'change_quantity' item.product.id %}?action=decrease"class="p-2 rounded-xl bg-teal-500 text-white">-</a>
+                        <a href="{% url 'change_quantity' item.product.id %}?action=decrease" class="p-2 rounded-xl bg-teal-500 text-white">-</a>
                     </div>
                     <a href="{% url 'remove_from_cart' item.product.id %}" class="inline-block">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -37,7 +37,7 @@
     
     {% else %}
         <div class="px-6 py-6 bg-gray-300">
-            You don't have any products in the cart!
+            You don't have any products in the cart yet!
         </div>
     {% endif %}
 {% endblock %}

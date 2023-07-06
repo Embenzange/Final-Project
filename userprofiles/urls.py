@@ -8,11 +8,11 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('myaccount/', views.myaccount, name='myaccount'),
     path('my-store/', views.my_store, name='my_store'),
-    path('my-store/add-poduct/', views.add_product, name='add_product'),
     path('my-store/order-detail/<int:pk>/', views.my_store_order_detail, name='my_store_order_detail'),
+    path('my-store/add-poduct/', views.add_product, name='add_product'),
     path('my-store/edit-product/<int:pk>/', views.edit_product, name='edit_product'),
     path('my-store/delete-product/<int:pk>/', views.delete_product, name='delete_product'),
-    path('vendor/<int:pk>/', views.vendor_detail, name='vendor_detail'),
+    path('vendors/<int:pk>/', views.vendor_detail, name='vendor_detail'),
 ]
 
 

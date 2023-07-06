@@ -67,7 +67,7 @@ def edit_product(request, pk):
         if form.is_valid():
             form.save()
 
-            messages.success(request, 'The changes were saved!')
+            messages.success(request, 'The changes have been saved!')
 
             return redirect('my_store')
     else:
@@ -100,8 +100,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            messages.success(request, "Sign up successful.")
-            user = Userprofile.objects.create(user=user)
+            userprofile = Userprofile.objects.create(user=user)
             return redirect('frontpage')
 
     else:

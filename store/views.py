@@ -74,7 +74,7 @@ def checkout(request):
                     'price_data':{
                         'currency': 'Ksh',
                         'product_data': {
-                            'name': product.title
+                            'name': product.title,
                         },
                         'unit_amount': product.price,
                     },
@@ -113,7 +113,7 @@ def checkout(request):
                 
             cart.clear()
 
-            return JsonResponse({'session': session, 'order': payment_intent, })
+            return JsonResponse({'session': session, 'order': payment_intent})
     else:
         form = OrderForm()
 

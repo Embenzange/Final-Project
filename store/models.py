@@ -1,6 +1,6 @@
 from statistics import mode
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 from django.core.files import File
 from io import BytesIO
 from PIL import Image
@@ -41,7 +41,7 @@ class Product(models.Model):
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default=ACTIVE)
 
     class Meta:
-        ordering = ('created_at',)
+        ordering = ('-created_at',)
 
     def __str__(self):
         return self.title
@@ -74,14 +74,6 @@ class Product(models.Model):
         return thumbnail 
 
 class Order(models.Model):
-    ORDERED = 'ordered'
-    SHIPPED = 'shipped'
-
-    STATUS_CHOICES = (
-        (ORDERED, 'Ordered'),
-        (SHIPPED, 'Shippped')
-    )
-
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
@@ -93,7 +85,6 @@ class Order(models.Model):
     payment_intent = models.CharField(max_length=255)
     created_by = models.ForeignKey(User, related_name='orders', on_delete=models.SET_NULL, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default=ORDERED)
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
