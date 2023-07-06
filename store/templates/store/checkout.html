@@ -23,10 +23,6 @@
             errors.push('The first name field is missing!');
         }
 
-        if (errors.length) {
-            return false;
-        }
-
         if (last_name == '') {
             errors.push('The last name field is missing!');
         }
@@ -98,7 +94,7 @@
                 return response.json()
             })
             .then(function(session) {
-                return stripe.redirectToCheckout({ sessionId: session.session.id})
+                return stripe.redirectToCheckout({ sessionId: session.session.id })
             })
             .then(function(result) {
                 if(result.error){
